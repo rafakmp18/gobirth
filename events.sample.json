@@ -1,0 +1,14 @@
+[
+    {
+        "id": "evt-1",
+        "title": "Pepe",
+        "description": "phone: +34600111222\ncontext: colega del gym",
+        "start_date": "2026-01-16"
+    },
+    {
+        "id": "evt-2",
+        "title": "Ana",
+        "description": "phone: +34600333444",
+        "start_date": "2026-01-16"
+    }
+]
