@@ -63,6 +63,12 @@ func (useCase RunDailyGreetings) Run(ctx context.Context) RunResult {
 		}
 
 		if useCase.DryRun {
+			if err := useCase.Sender.SendText(ctx, contact.Phone(), msg.Text()); err != nil {
+				res.Failed++
+				res.Errors = append(res.Errors, err)
+				continue
+			}
+
 			res.Skipped++
 			continue
 		}
@@ -87,6 +93,5 @@ func startOfDay(t time.Time) time.Time {
 	y, m, d := t.Date()
 	return time.Date(y, m, d, 0, 0, 0, 0, t.Location())
 }
-
 
 var _ = domain.ErrMissingName

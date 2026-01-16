@@ -88,7 +88,7 @@ func TestRunDailyGreetings_SendsMessages(t *testing.T) {
 	}
 }
 
-func TestRunDailyGreetings_DryRun_DoesNotSend(t *testing.T) {
+func TestRunDailyGreetings_DryRun_PreviewsMessage(t *testing.T) {
 	now := time.Date(2026, 1, 16, 9, 0, 0, 0, time.UTC)
 
 	cal := fakeCalendar{
@@ -104,9 +104,8 @@ func TestRunDailyGreetings_DryRun_DoesNotSend(t *testing.T) {
 		Generator: fakeGenerator{text: "🎉"},
 		Sender:    sender,
 		Clock:     fakeClock{t: now},
-
-		MaxPerRun: 10,
-		DryRun:    true,
+		MaxPerRun:  10,
+		DryRun:     true,
 	}
 
 	res := uc.Run(context.Background())
@@ -117,10 +116,11 @@ func TestRunDailyGreetings_DryRun_DoesNotSend(t *testing.T) {
 	if res.Skipped != 1 {
 		t.Fatalf("expected skipped 1, got %d", res.Skipped)
 	}
-	if len(sender.sent) != 0 {
-		t.Fatalf("expected sender to send 0 messages, got %d", len(sender.sent))
+	if len(sender.sent) != 1 {
+		t.Fatalf("expected sender to be called once for preview, got %d", len(sender.sent))
 	}
 }
+
 
 func TestRunDailyGreetings_RespectsMaxPerRun(t *testing.T) {
 	now := time.Date(2026, 1, 16, 9, 0, 0, 0, time.UTC)
