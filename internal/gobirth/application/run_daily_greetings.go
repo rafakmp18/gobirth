@@ -13,7 +13,6 @@ type RunDailyGreetings struct {
 	Generator MessageGenerator
 	Sender    WhatsAppSender
 	Clock     Clock
-
 	Tag       string
 	MaxPerRun int
 	DryRun    bool
@@ -27,18 +26,18 @@ type RunResult struct {
 	Errors  []error
 }
 
-func (uc RunDailyGreetings) Run(ctx context.Context) RunResult {
-	now := uc.Clock.Now()
+func (useCase RunDailyGreetings) Run(ctx context.Context) RunResult {
+	now := useCase.Clock.Now()
 	date := startOfDay(now)
 
-	events, err := uc.Calendar.EventsForDate(ctx, date, uc.Tag)
+	events, err := useCase.Calendar.EventsForDate(ctx, date, useCase.Tag)
 	if err != nil {
 		return RunResult{Failed: 1, Errors: []error{err}}
 	}
 
 	res := RunResult{Total: len(events)}
 
-	limit := uc.MaxPerRun
+	limit := useCase.MaxPerRun
 	if limit <= 0 || limit > len(events) {
 		limit = len(events)
 	}
@@ -46,14 +45,14 @@ func (uc RunDailyGreetings) Run(ctx context.Context) RunResult {
 	for i := 0; i < limit; i++ {
 		ev := events[i]
 
-		contact, err := uc.Parser.Parse(ev)
+		contact, err := useCase.Parser.Parse(ev)
 		if err != nil {
 			res.Failed++
 			res.Errors = append(res.Errors, err)
 			continue
 		}
 
-		msg, err := uc.Generator.Generate(ctx, MessageInput{
+		msg, err := useCase.Generator.Generate(ctx, MessageInput{
 			Name:    contact.Name(),
 			Context: contact.Context(),
 			Date:    date,
@@ -64,12 +63,12 @@ func (uc RunDailyGreetings) Run(ctx context.Context) RunResult {
 			continue
 		}
 
-		if uc.DryRun {
+		if useCase.DryRun {
 			res.Skipped++
 			continue
 		}
 
-		if err := uc.Sender.SendText(ctx, contact.Phone(), msg.Text()); err != nil {
+		if err := useCase.Sender.SendText(ctx, contact.Phone(), msg.Text()); err != nil {
 			res.Failed++
 			res.Errors = append(res.Errors, err)
 			continue
