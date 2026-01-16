@@ -3,11 +3,12 @@ package application
 import (
 	"context"
 	"time"
+
 	"github.com/rafakmp18/gobirth/internal/gobirth/domain"
 )
 
 type CalendarProvider interface {
-	EventsForDate(ctx context.Context, date time.Time, tag string) ([]CalendarEvent, error)
+	EventsForDate(ctx context.Context, date time.Time) ([]CalendarEvent, error)
 }
 
 type MessageInput struct {

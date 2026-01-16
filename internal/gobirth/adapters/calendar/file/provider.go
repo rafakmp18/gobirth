@@ -22,9 +22,8 @@ type eventDTO struct {
 	StartDate   string `json:"start_date"`
 }
 
-func (p Provider) EventsForDate(ctx context.Context, date time.Time, tag string) ([]application.CalendarEvent, error) {
+func (p Provider) EventsForDate(ctx context.Context, date time.Time) ([]application.CalendarEvent, error) {
 	_ = ctx
-	_ = tag
 
 	f, err := os.Open(p.Path)
 	if err != nil {

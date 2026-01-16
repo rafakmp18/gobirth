@@ -26,7 +26,7 @@ func TestProvider_EventsForDate_FiltersByDate(t *testing.T) {
 	p := Provider{Path: tmp.Name()}
 
 	date := time.Date(2026, 1, 16, 12, 0, 0, 0, time.UTC)
-	events, err := p.EventsForDate(context.Background(), date, "gobirth")
+	events, err := p.EventsForDate(context.Background(), date)
 	if err != nil {
 		t.Fatalf("expected nil error, got %v", err)
 	}

@@ -17,7 +17,6 @@ import (
 func main() {
 	var (
 		calendarFile = flag.String("calendar-file", "", "Path to a JSON file with calendar events")
-		tag          = flag.String("tag", "gobirth", "Calendar tag/label to filter events")
 		dryRun       = flag.Bool("dry-run", true, "If true, messages will not be sent (only printed)")
 		maxPerRun    = flag.Int("max", 10, "Maximum number of greetings to process per run")
 		dateStr      = flag.String("date", "", "Run for a specific date (YYYY-MM-DD). Defaults to today.")
@@ -54,7 +53,6 @@ func main() {
 		Generator: gen,
 		Sender:    sender,
 		Clock:     fixedOrSystemClock{fixed: runDate, system: clk, useFixed: *dateStr != ""},
-		Tag:       *tag,
 		MaxPerRun:  *maxPerRun,
 		DryRun:     *dryRun,
 	}

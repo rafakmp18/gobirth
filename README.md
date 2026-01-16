@@ -3,8 +3,8 @@
 GoBirth is a small **CLI application written in Go** that automatically sends birthday greetings via **WhatsApp**.
 
 The source of truth is **Google Calendar**:
+- You create a calendar in Google Calendar with the name "gobirth"
 - You create birthday events in your calendar
-- You tag them with `gobirth`
 - GoBirth reads those events
 - Generates a birthday message (optionally using AI)
 - And sends it automatically via WhatsApp

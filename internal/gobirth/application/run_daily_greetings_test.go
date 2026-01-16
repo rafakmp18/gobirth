@@ -17,7 +17,7 @@ type fakeCalendar struct {
 	err    error
 }
 
-func (f fakeCalendar) EventsForDate(ctx context.Context, date time.Time, tag string) ([]CalendarEvent, error) {
+func (f fakeCalendar) EventsForDate(ctx context.Context, date time.Time) ([]CalendarEvent, error) {
 	return f.events, f.err
 }
 
@@ -70,7 +70,7 @@ func TestRunDailyGreetings_SendsMessages(t *testing.T) {
 		Generator: fakeGenerator{text: "🎉"},
 		Sender:    sender,
 		Clock:     fakeClock{t: now},
-		Tag:       "gobirth",
+
 		MaxPerRun: 10,
 		DryRun:    false,
 	}
@@ -104,7 +104,7 @@ func TestRunDailyGreetings_DryRun_DoesNotSend(t *testing.T) {
 		Generator: fakeGenerator{text: "🎉"},
 		Sender:    sender,
 		Clock:     fakeClock{t: now},
-		Tag:       "gobirth",
+
 		MaxPerRun: 10,
 		DryRun:    true,
 	}
@@ -140,7 +140,6 @@ func TestRunDailyGreetings_RespectsMaxPerRun(t *testing.T) {
 		Generator: fakeGenerator{text: "ok"},
 		Sender:    sender,
 		Clock:     fakeClock{t: now},
-		Tag:       "gobirth",
 		MaxPerRun: 2,
 		DryRun:    false,
 	}

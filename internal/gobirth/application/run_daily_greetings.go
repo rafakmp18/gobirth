@@ -13,7 +13,6 @@ type RunDailyGreetings struct {
 	Generator MessageGenerator
 	Sender    WhatsAppSender
 	Clock     Clock
-	Tag       string
 	MaxPerRun int
 	DryRun    bool
 }
@@ -30,7 +29,7 @@ func (useCase RunDailyGreetings) Run(ctx context.Context) RunResult {
 	now := useCase.Clock.Now()
 	date := startOfDay(now)
 
-	events, err := useCase.Calendar.EventsForDate(ctx, date, useCase.Tag)
+	events, err := useCase.Calendar.EventsForDate(ctx, date)
 	if err != nil {
 		return RunResult{Failed: 1, Errors: []error{err}}
 	}
