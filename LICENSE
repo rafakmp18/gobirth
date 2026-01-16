@@ -1,21 +1,44 @@
-MIT License
+PolyForm Noncommercial License 1.0.0
 
-Copyright (c) 2026 rafeta
+Copyright (c) 2026 Rafa Montesinos Pérez
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to use, copy,
+modify, and distribute the Software for non-commercial purposes only, subject to
+the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. Noncommercial Use Only.
+The Software may not be used for commercial purposes. A commercial purpose is one
+that is primarily intended for commercial advantage or monetary compensation.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+2. Distribution.
+You may distribute copies of the Software, modified or unmodified, provided that
+the entire Software, including all copyright, patent, trademark, and attribution
+notices, as well as this license, are retained and included with all copies.
+
+3. No Additional Restrictions.
+You may not impose any further restrictions on the exercise of the rights granted
+under this License.
+
+4. Disclaimer of Warranty.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+5. Termination.
+This License is effective until terminated. Your rights under this License will
+terminate automatically if you fail to comply with any of its terms. Upon
+termination, you must cease all use, distribution, and modification of the
+Software.
+
+6. Governing Law.
+This License shall be governed by and construed in accordance with the laws
+applicable in the jurisdiction of the copyright holder, without regard to its
+conflict of law provisions.
+
+This license is based on the PolyForm Noncommercial License 1.0.0.
+For more information, see:
+https://polyformproject.org/licenses/noncommercial/1.0.0/
