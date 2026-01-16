@@ -31,13 +31,16 @@ func main() {
 	}
 
 	//TODO: Make it configurable
-	loc := time.Local
+	loc, err := time.LoadLocation("Europe/Madrid")
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "error: cannot load Europe/Madrid timezone:", err)
+		os.Exit(1)
+	}
 	runDate, err := resolveRunDate(*dateStr, loc)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "error:", err)
 		os.Exit(2)
 	}
-
 
 	cal := file.Provider{Path: *calendarFile}
 	gen := template.Generator{Emoji: *emoji}
